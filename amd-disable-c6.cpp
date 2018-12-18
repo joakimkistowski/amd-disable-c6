@@ -58,6 +58,7 @@ enum op_mode {DISABLE, RETRYDISABLE, ENABLE, LIST, NONE, ERROR};
 
 void get_cpu_ids(std::vector<int> &ids) {
     const std::string DOT = std::string(".");
+    const std::string MICROCODE = std::string("microcode");
     DIR * dir = opendir("/dev/cpu/");
     if (!dir) {
         std::cerr << "Failed reading CPU ids" << std::endl;
@@ -66,7 +67,7 @@ void get_cpu_ids(std::vector<int> &ids) {
     struct dirent * ent;
     while ((ent = readdir(dir)) != NULL) {
             std::string name(ent->d_name);
-            if (!name.compare(0, DOT.length(), DOT) == 0) {
+            if (!name.compare(0, DOT.length(), DOT) == 0 && name != MICROCODE) {
                 try {
                     ids.push_back(std::stoi(std::string(ent->d_name)));
                 } catch (const std::invalid_argument& ia) {
@@ -209,13 +210,13 @@ int direct_execution_main(const op_mode &mode) {
                     std::cout << "Disabled C6 state" << std::endl;
                     return 0;
             } else if (mode == LIST) {
-                    std::cout << "C6 State - Package: ";
+                    std::cout << "C6 State - Package : ";
                     if (package_msr_value & PACKAGE_MSR_ENABLED) {
                         std:: cout << "Enabled" << std::endl;
                     } else {
                         std:: cout << "Disabled" << std::endl;
                     }
-                    std::cout << "C6 State - Core: ";
+                    std::cout << "C6 State - Core    : ";
                     if ((core_msr_value & CORE_MSR_ENABLED) == CORE_MSR_ENABLED) {
                         std:: cout << "Enabled" << std::endl;
                     } else {
