@@ -238,9 +238,10 @@ int retry_execution_main() {
                 return 0;
             }
         }
+        std::cerr << "Failed disabling C6 state on retry #" << MAX_RETRIES << "; accepting failure" << std::endl;
+        return 1;
     }
-    std::cerr << "Failed disabling C6 state on retry #" << MAX_RETRIES << "; accepting failure" << std::endl;
-    return 1;
+    return 0;
 }
 
 int main(const int argc, const char *argv[]) {
