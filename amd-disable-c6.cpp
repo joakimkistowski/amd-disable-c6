@@ -33,6 +33,7 @@
 #include <string>
 #include <unistd.h>
 #include <fstream>
+#include <stdexcept>
 
 const std::string FLAG_HELP0 = "-h";
 const std::string FLAG_HELP1 = "--help";

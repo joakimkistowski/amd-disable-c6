@@ -3,11 +3,11 @@ This is a systemd service to automatically disable the C6 power saving state on 
 
 ## Installation
 
-RPM-based repositories for the service are [available to be used for dnf/yum/zypper](https://software.opensuse.org//download.html?project=home%3Ajkist&package=amd_disable_c6).  
+RPM-based repositories for the service are [available to be used for dnf/yum/zypper](https://software.opensuse.org//download.html?project=home%3Ajkist&package=amd-disable-c6).  
 *Note:* You will have to enable and start the service after installation using:
 ```bash
 $ sudo systemctl enable amd_disable_c6.service
 $ sudo systemctl start amd_disable_c6.service
 ```
 
-Supported Distributions at the moment: CentOS 7, Fedora 29, Mageia 6 and Cauldron, openSUSE Tumbleweed, openSUSE Leap 15 and 42.3, RHEL 7, SLE 15
+Supported Distributions at the moment: CentOS 7, Fedora 29 and Rawhide, Mageia Cauldron, openSUSE Tumbleweed, openSUSE Leap 15 and 42.3, RHEL 7, SLE 15
