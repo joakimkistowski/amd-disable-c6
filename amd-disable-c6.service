@@ -1,0 +1,12 @@
+[Unit]
+Description=Service to disable the C6 State on AMD Zen-based (Ryzen, Epyc) processors on boot
+DefaultDependencies=no
+After=sysinit.target local-fs.target systemd-modules-load.service
+Before=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/amd-disable-c6 --disable_c6_retry
+
+[Install]
+WantedBy=multi-user.target
