@@ -9,4 +9,5 @@ Type=oneshot
 ExecStart=/usr/sbin/amd-disable-c6 --disable_c6_retry
 
 [Install]
+Alias=amd-disable-c6
 WantedBy=multi-user.target
