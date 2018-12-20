@@ -6,7 +6,7 @@ Before=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/sbin/amd-disable-c6 --disable_c6_retry
+ExecStart=/usr/sbin/amd-disable-c6 --disable_c6_retry
 
 [Install]
 WantedBy=multi-user.target
