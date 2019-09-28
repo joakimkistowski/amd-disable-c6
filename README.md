@@ -11,5 +11,21 @@ $ sudo systemctl start amd_disable_c6.service
 ```
 
 Supported Distributions at the moment:
-* RPM: CentOS 7, Fedora 28, 29, and Rawhide, Mageia Cauldron, openSUSE Tumbleweed, openSUSE Leap 15 and 42.3, RHEL 7, SLE 15
-* DEB: Debian 9, Ubuntu 16.04, 17.10, 18.04, 18.10
+* RPM: CentOS 7 and 8, Fedora 28, 29, 30 and Rawhide, Mageia 7 and Cauldron, openSUSE Tumbleweed, openSUSE Leap 15 and 15.1, RHEL 7 and 8, SLE 15 and 15.1
+* DEB: Debian 9 and 10, Ubuntu 16.04, 18.04, 18.10 and 19.04
+
+**How to build and install manually:**
+```bash
+$ sudo make install
+$ sudo systemctl enable amd_disable_c6.service
+$ sudo systemctl start amd_disable_c6.service
+```
+
+## Troubleshooting
+The most likely reason for the service to fail is the `msr` module not being present. It should be present on most distros, but some (e.g., Arch, Manjaro) do not have it enabled by default.
+
+To enable the module:
+```bash
+$ sudo modprobe msr #enable until next reboot
+$ sudo sh -c "echo msr > /etc/modules-load.d/msr.conf" #auto-enable at boot time
+```
