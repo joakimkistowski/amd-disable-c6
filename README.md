@@ -6,8 +6,8 @@ This is a systemd service to automatically disable the C6 power saving state on 
 RPM and DEB repositories for the service are [available to be used for apt/dnf/yum/zypper](https://software.opensuse.org//download.html?project=home%3Ajkist&package=amd-disable-c6).  
 *Note:* On RPM-based distros you will have to enable and start the service after installation using:
 ```bash
-$ sudo systemctl enable amd_disable_c6.service
-$ sudo systemctl start amd_disable_c6.service
+$ sudo systemctl enable amd-disable-c6.service
+$ sudo systemctl start amd-disable-c6.service
 ```
 
 Supported Distributions at the moment:
@@ -17,8 +17,8 @@ Supported Distributions at the moment:
 **How to build and install manually:**
 ```bash
 $ sudo make install
-$ sudo systemctl enable amd_disable_c6.service
-$ sudo systemctl start amd_disable_c6.service
+$ sudo systemctl enable amd-disable-c6.service
+$ sudo systemctl start amd-disable-c6.service
 ```
 
 ## Troubleshooting
